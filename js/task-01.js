@@ -1,23 +1,13 @@
 
-function countQuantity() {
-    
-    const items = document.querySelectorAll('.item');
-    const quantity = items.length;
+    const itemsEl = document.querySelectorAll('.item');
+    const quantity = itemsEl.length;
     console.log(`У списку ${quantity} категорій`);
-    let i = 0;
     
-    while (i < quantity) {
-        
-        let item = items[i];
-        const elems = item.querySelectorAll('ul li');
-        const headings = document.querySelectorAll('h2');
-        let heading = headings[i].textContent;
-        
-        console.log(`категорія : ${heading}`);
-        
-        console.log(`кількість елементів : ${elems.length}`);
-        i++;
-    }
-}
 
-countQuantity();
+    
+    itemsEl.forEach(item => {
+        const headings = item.querySelector('h2');
+        const elems = item.querySelectorAll('.item li');
+        console.log(`категорія : ${headings.textContent}`);
+        console.log(`кількість елементів : ${elems.length}`);
+    });

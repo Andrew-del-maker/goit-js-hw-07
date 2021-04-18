@@ -19,16 +19,10 @@ const images = [
 const galery = document.querySelector('#gallery');
 const elements = [];
 
-for (let i = 0; i < images.length; i++){
-    const image = images[i];
-    const li = document.createElement('li');
-    li.insertAdjacentHTML('afterBegin', `<img src = ${image.url} alt = ${image.alt} class='item'>  `);
-   
-    
-  
-    elements.push(li);
+images.map(image => {
+  const liEl= `<li><img src = ${image.url} alt = ${image.alt} class='item'></li>`;
+  elements.push(liEl);
+})
+galery.insertAdjacentHTML('afterbegin', elements);
 
-    
-}
-galery.append(...elements);
  
